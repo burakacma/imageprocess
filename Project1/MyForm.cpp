@@ -1,5 +1,9 @@
 #include "MyForm.h"
+/*
+Burak Açma
 
+
+*/
 using namespace System;
 using namespace System::Windows::Forms;
 [STAThread]
