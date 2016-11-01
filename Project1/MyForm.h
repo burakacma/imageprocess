@@ -105,6 +105,29 @@ namespace Project1 {
 	private: System::Windows::Forms::RadioButton^  rB_eksi8;
 	private: System::Windows::Forms::RadioButton^  rB_arti4;
 	private: System::Windows::Forms::RadioButton^  rB_eksi4;
+	private: System::Windows::Forms::TabPage^  btn_;
+	private: System::Windows::Forms::RadioButton^  radioButton4;
+	private: System::Windows::Forms::RadioButton^  radioButton3;
+	private: System::Windows::Forms::RadioButton^  rB_m_negatif;
+	private: System::Windows::Forms::RadioButton^  rB_Mean;
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Button^  btn_m_fitrele;
+	private: System::Windows::Forms::Button^  btn_m_rekle;
+	private: System::Windows::Forms::TabPage^  tabPage4;
+	private: System::Windows::Forms::RadioButton^  rB_y_esik;
+
+	private: System::Windows::Forms::RadioButton^  rB_y_gama;
+
+	private: System::Windows::Forms::RadioButton^  radioButton6;
+	private: System::Windows::Forms::RadioButton^  rB_y_log;
+	private: System::Windows::Forms::RadioButton^  rB_y_terslog;
+	private: System::Windows::Forms::RadioButton^  rB_y_Negatif;
+	private: System::Windows::Forms::Button^  btn_y_resimekle;
+private: System::Windows::Forms::PictureBox^  pB_2;
+private: System::Windows::Forms::PictureBox^  pB_1;
+private: System::Windows::Forms::Button^  b_filtre;
+private: System::Windows::Forms::Label^  lbl_y_done;
 
 
 
@@ -171,14 +194,35 @@ namespace Project1 {
 			this->picBox_kaydirma2 = (gcnew System::Windows::Forms::PictureBox());
 			this->picBox_kaydirma1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->rB_arti8 = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_eksi8 = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_arti4 = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_eksi4 = (gcnew System::Windows::Forms::RadioButton());
 			this->pBox_fitreli = (gcnew System::Windows::Forms::PictureBox());
 			this->pBox_orjinal = (gcnew System::Windows::Forms::PictureBox());
 			this->btn_fitrele = (gcnew System::Windows::Forms::Button());
 			this->btn_lf_Ekle = (gcnew System::Windows::Forms::Button());
-			this->rB_eksi4 = (gcnew System::Windows::Forms::RadioButton());
-			this->rB_arti4 = (gcnew System::Windows::Forms::RadioButton());
-			this->rB_eksi8 = (gcnew System::Windows::Forms::RadioButton());
-			this->rB_arti8 = (gcnew System::Windows::Forms::RadioButton());
+			this->btn_ = (gcnew System::Windows::Forms::TabPage());
+			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_m_negatif = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_Mean = (gcnew System::Windows::Forms::RadioButton());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->btn_m_fitrele = (gcnew System::Windows::Forms::Button());
+			this->btn_m_rekle = (gcnew System::Windows::Forms::Button());
+			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->lbl_y_done = (gcnew System::Windows::Forms::Label());
+			this->b_filtre = (gcnew System::Windows::Forms::Button());
+			this->pB_2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pB_1 = (gcnew System::Windows::Forms::PictureBox());
+			this->rB_y_esik = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_y_gama = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_y_log = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_y_terslog = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_y_Negatif = (gcnew System::Windows::Forms::RadioButton());
+			this->btn_y_resimekle = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox_kor))->BeginInit();
@@ -188,6 +232,12 @@ namespace Project1 {
 			this->tabPage3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pBox_fitreli))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pBox_orjinal))->BeginInit();
+			this->btn_->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->tabPage4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -195,6 +245,8 @@ namespace Project1 {
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Controls->Add(this->btn_);
+			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Location = System::Drawing::Point(2, 1);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -529,6 +581,50 @@ namespace Project1 {
 			this->tabPage3->Text = L"Laplas Fitresi";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
+			// rB_arti8
+			// 
+			this->rB_arti8->AutoSize = true;
+			this->rB_arti8->Location = System::Drawing::Point(15, 165);
+			this->rB_arti8->Name = L"rB_arti8";
+			this->rB_arti8->Size = System::Drawing::Size(49, 17);
+			this->rB_arti8->TabIndex = 7;
+			this->rB_arti8->TabStop = true;
+			this->rB_arti8->Text = L"Artý 8";
+			this->rB_arti8->UseVisualStyleBackColor = true;
+			// 
+			// rB_eksi8
+			// 
+			this->rB_eksi8->AutoSize = true;
+			this->rB_eksi8->Location = System::Drawing::Point(15, 142);
+			this->rB_eksi8->Name = L"rB_eksi8";
+			this->rB_eksi8->Size = System::Drawing::Size(54, 17);
+			this->rB_eksi8->TabIndex = 6;
+			this->rB_eksi8->TabStop = true;
+			this->rB_eksi8->Text = L"Eksi 8";
+			this->rB_eksi8->UseVisualStyleBackColor = true;
+			// 
+			// rB_arti4
+			// 
+			this->rB_arti4->AutoSize = true;
+			this->rB_arti4->Location = System::Drawing::Point(15, 119);
+			this->rB_arti4->Name = L"rB_arti4";
+			this->rB_arti4->Size = System::Drawing::Size(49, 17);
+			this->rB_arti4->TabIndex = 5;
+			this->rB_arti4->TabStop = true;
+			this->rB_arti4->Text = L"Artý 4";
+			this->rB_arti4->UseVisualStyleBackColor = true;
+			// 
+			// rB_eksi4
+			// 
+			this->rB_eksi4->AutoSize = true;
+			this->rB_eksi4->Location = System::Drawing::Point(15, 96);
+			this->rB_eksi4->Name = L"rB_eksi4";
+			this->rB_eksi4->Size = System::Drawing::Size(54, 17);
+			this->rB_eksi4->TabIndex = 4;
+			this->rB_eksi4->TabStop = true;
+			this->rB_eksi4->Text = L"Eksi 4";
+			this->rB_eksi4->UseVisualStyleBackColor = true;
+			// 
 			// pBox_fitreli
 			// 
 			this->pBox_fitreli->Location = System::Drawing::Point(484, 6);
@@ -567,49 +663,233 @@ namespace Project1 {
 			this->btn_lf_Ekle->UseVisualStyleBackColor = true;
 			this->btn_lf_Ekle->Click += gcnew System::EventHandler(this, &MyForm::btn_lf_Ekle_Click);
 			// 
-			// rB_eksi4
+			// btn_
 			// 
-			this->rB_eksi4->AutoSize = true;
-			this->rB_eksi4->Location = System::Drawing::Point(15, 96);
-			this->rB_eksi4->Name = L"rB_eksi4";
-			this->rB_eksi4->Size = System::Drawing::Size(54, 17);
-			this->rB_eksi4->TabIndex = 4;
-			this->rB_eksi4->TabStop = true;
-			this->rB_eksi4->Text = L"Eksi 4";
-			this->rB_eksi4->UseVisualStyleBackColor = true;
+			this->btn_->Controls->Add(this->radioButton4);
+			this->btn_->Controls->Add(this->radioButton3);
+			this->btn_->Controls->Add(this->rB_m_negatif);
+			this->btn_->Controls->Add(this->rB_Mean);
+			this->btn_->Controls->Add(this->pictureBox2);
+			this->btn_->Controls->Add(this->pictureBox1);
+			this->btn_->Controls->Add(this->btn_m_fitrele);
+			this->btn_->Controls->Add(this->btn_m_rekle);
+			this->btn_->Location = System::Drawing::Point(4, 22);
+			this->btn_->Name = L"btn_";
+			this->btn_->Padding = System::Windows::Forms::Padding(3);
+			this->btn_->Size = System::Drawing::Size(811, 415);
+			this->btn_->TabIndex = 3;
+			this->btn_->Text = L"Filter";
+			this->btn_->UseVisualStyleBackColor = true;
 			// 
-			// rB_arti4
+			// radioButton4
 			// 
-			this->rB_arti4->AutoSize = true;
-			this->rB_arti4->Location = System::Drawing::Point(15, 119);
-			this->rB_arti4->Name = L"rB_arti4";
-			this->rB_arti4->Size = System::Drawing::Size(49, 17);
-			this->rB_arti4->TabIndex = 5;
-			this->rB_arti4->TabStop = true;
-			this->rB_arti4->Text = L"Artý 4";
-			this->rB_arti4->UseVisualStyleBackColor = true;
+			this->radioButton4->AutoSize = true;
+			this->radioButton4->Location = System::Drawing::Point(18, 128);
+			this->radioButton4->Name = L"radioButton4";
+			this->radioButton4->Size = System::Drawing::Size(85, 17);
+			this->radioButton4->TabIndex = 7;
+			this->radioButton4->TabStop = true;
+			this->radioButton4->Text = L"radioButton4";
+			this->radioButton4->UseVisualStyleBackColor = true;
 			// 
-			// rB_eksi8
+			// radioButton3
 			// 
-			this->rB_eksi8->AutoSize = true;
-			this->rB_eksi8->Location = System::Drawing::Point(15, 142);
-			this->rB_eksi8->Name = L"rB_eksi8";
-			this->rB_eksi8->Size = System::Drawing::Size(54, 17);
-			this->rB_eksi8->TabIndex = 6;
-			this->rB_eksi8->TabStop = true;
-			this->rB_eksi8->Text = L"Eksi 8";
-			this->rB_eksi8->UseVisualStyleBackColor = true;
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Location = System::Drawing::Point(18, 105);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(85, 17);
+			this->radioButton3->TabIndex = 6;
+			this->radioButton3->TabStop = true;
+			this->radioButton3->Text = L"radioButton3";
+			this->radioButton3->UseVisualStyleBackColor = true;
 			// 
-			// rB_arti8
+			// rB_m_negatif
 			// 
-			this->rB_arti8->AutoSize = true;
-			this->rB_arti8->Location = System::Drawing::Point(15, 165);
-			this->rB_arti8->Name = L"rB_arti8";
-			this->rB_arti8->Size = System::Drawing::Size(49, 17);
-			this->rB_arti8->TabIndex = 7;
-			this->rB_arti8->TabStop = true;
-			this->rB_arti8->Text = L"Artý 8";
-			this->rB_arti8->UseVisualStyleBackColor = true;
+			this->rB_m_negatif->AutoSize = true;
+			this->rB_m_negatif->Location = System::Drawing::Point(18, 82);
+			this->rB_m_negatif->Name = L"rB_m_negatif";
+			this->rB_m_negatif->Size = System::Drawing::Size(59, 17);
+			this->rB_m_negatif->TabIndex = 5;
+			this->rB_m_negatif->TabStop = true;
+			this->rB_m_negatif->Text = L"Negatif";
+			this->rB_m_negatif->UseVisualStyleBackColor = true;
+			// 
+			// rB_Mean
+			// 
+			this->rB_Mean->AutoSize = true;
+			this->rB_Mean->Location = System::Drawing::Point(18, 59);
+			this->rB_Mean->Name = L"rB_Mean";
+			this->rB_Mean->Size = System::Drawing::Size(75, 17);
+			this->rB_Mean->TabIndex = 4;
+			this->rB_Mean->TabStop = true;
+			this->rB_Mean->Text = L"Mean Fitre";
+			this->rB_Mean->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(475, 6);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(300, 300);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 3;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(150, 6);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(300, 300);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 2;
+			this->pictureBox1->TabStop = false;
+			// 
+			// btn_m_fitrele
+			// 
+			this->btn_m_fitrele->Location = System::Drawing::Point(18, 173);
+			this->btn_m_fitrele->Name = L"btn_m_fitrele";
+			this->btn_m_fitrele->Size = System::Drawing::Size(75, 23);
+			this->btn_m_fitrele->TabIndex = 1;
+			this->btn_m_fitrele->Text = L"Filtrele";
+			this->btn_m_fitrele->UseVisualStyleBackColor = true;
+			// 
+			// btn_m_rekle
+			// 
+			this->btn_m_rekle->Location = System::Drawing::Point(18, 21);
+			this->btn_m_rekle->Name = L"btn_m_rekle";
+			this->btn_m_rekle->Size = System::Drawing::Size(75, 23);
+			this->btn_m_rekle->TabIndex = 0;
+			this->btn_m_rekle->Text = L"Resim Ekle";
+			this->btn_m_rekle->UseVisualStyleBackColor = true;
+			// 
+			// tabPage4
+			// 
+			this->tabPage4->Controls->Add(this->lbl_y_done);
+			this->tabPage4->Controls->Add(this->b_filtre);
+			this->tabPage4->Controls->Add(this->pB_2);
+			this->tabPage4->Controls->Add(this->pB_1);
+			this->tabPage4->Controls->Add(this->rB_y_esik);
+			this->tabPage4->Controls->Add(this->rB_y_gama);
+			this->tabPage4->Controls->Add(this->radioButton6);
+			this->tabPage4->Controls->Add(this->rB_y_log);
+			this->tabPage4->Controls->Add(this->rB_y_terslog);
+			this->tabPage4->Controls->Add(this->rB_y_Negatif);
+			this->tabPage4->Controls->Add(this->btn_y_resimekle);
+			this->tabPage4->Location = System::Drawing::Point(4, 22);
+			this->tabPage4->Name = L"tabPage4";
+			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage4->Size = System::Drawing::Size(811, 415);
+			this->tabPage4->TabIndex = 4;
+			this->tabPage4->Text = L"Yeðinlik Dönüþüm Fonk.";
+			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// lbl_y_done
+			// 
+			this->lbl_y_done->AutoSize = true;
+			this->lbl_y_done->Location = System::Drawing::Point(14, 274);
+			this->lbl_y_done->Name = L"lbl_y_done";
+			this->lbl_y_done->Size = System::Drawing::Size(35, 13);
+			this->lbl_y_done->TabIndex = 7;
+			this->lbl_y_done->Text = L"label5";
+			// 
+			// b_filtre
+			// 
+			this->b_filtre->Location = System::Drawing::Point(3, 219);
+			this->b_filtre->Name = L"b_filtre";
+			this->b_filtre->Size = System::Drawing::Size(75, 23);
+			this->b_filtre->TabIndex = 6;
+			this->b_filtre->Text = L"Filtrele";
+			this->b_filtre->UseVisualStyleBackColor = true;
+			this->b_filtre->Click += gcnew System::EventHandler(this, &MyForm::b_filtre_Click);
+			// 
+			// pB_2
+			// 
+			this->pB_2->Location = System::Drawing::Point(452, 3);
+			this->pB_2->Name = L"pB_2";
+			this->pB_2->Size = System::Drawing::Size(300, 300);
+			this->pB_2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_2->TabIndex = 5;
+			this->pB_2->TabStop = false;
+			// 
+			// pB_1
+			// 
+			this->pB_1->Location = System::Drawing::Point(108, 3);
+			this->pB_1->Name = L"pB_1";
+			this->pB_1->Size = System::Drawing::Size(300, 300);
+			this->pB_1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_1->TabIndex = 5;
+			this->pB_1->TabStop = false;
+			// 
+			// rB_y_esik
+			// 
+			this->rB_y_esik->AutoSize = true;
+			this->rB_y_esik->Location = System::Drawing::Point(7, 159);
+			this->rB_y_esik->Name = L"rB_y_esik";
+			this->rB_y_esik->Size = System::Drawing::Size(67, 17);
+			this->rB_y_esik->TabIndex = 4;
+			this->rB_y_esik->Text = L"Eþikleme";
+			this->rB_y_esik->UseVisualStyleBackColor = true;
+			// 
+			// rB_y_gama
+			// 
+			this->rB_y_gama->AutoSize = true;
+			this->rB_y_gama->Location = System::Drawing::Point(7, 136);
+			this->rB_y_gama->Name = L"rB_y_gama";
+			this->rB_y_gama->Size = System::Drawing::Size(53, 17);
+			this->rB_y_gama->TabIndex = 3;
+			this->rB_y_gama->Text = L"Gama";
+			this->rB_y_gama->UseVisualStyleBackColor = true;
+			// 
+			// radioButton6
+			// 
+			this->radioButton6->AutoSize = true;
+			this->radioButton6->Location = System::Drawing::Point(7, 182);
+			this->radioButton6->Name = L"radioButton6";
+			this->radioButton6->Size = System::Drawing::Size(85, 17);
+			this->radioButton6->TabIndex = 3;
+			this->radioButton6->Text = L"radioButton6";
+			this->radioButton6->UseVisualStyleBackColor = true;
+			// 
+			// rB_y_log
+			// 
+			this->rB_y_log->AutoSize = true;
+			this->rB_y_log->Location = System::Drawing::Point(7, 90);
+			this->rB_y_log->Name = L"rB_y_log";
+			this->rB_y_log->Size = System::Drawing::Size(43, 17);
+			this->rB_y_log->TabIndex = 2;
+			this->rB_y_log->Text = L"Log";
+			this->rB_y_log->UseVisualStyleBackColor = true;
+			// 
+			// rB_y_terslog
+			// 
+			this->rB_y_terslog->AutoSize = true;
+			this->rB_y_terslog->Location = System::Drawing::Point(7, 113);
+			this->rB_y_terslog->Name = L"rB_y_terslog";
+			this->rB_y_terslog->Size = System::Drawing::Size(67, 17);
+			this->rB_y_terslog->TabIndex = 2;
+			this->rB_y_terslog->Text = L"Ters Log";
+			this->rB_y_terslog->UseVisualStyleBackColor = true;
+			// 
+			// rB_y_Negatif
+			// 
+			this->rB_y_Negatif->AutoSize = true;
+			this->rB_y_Negatif->Checked = true;
+			this->rB_y_Negatif->Location = System::Drawing::Point(7, 67);
+			this->rB_y_Negatif->Name = L"rB_y_Negatif";
+			this->rB_y_Negatif->Size = System::Drawing::Size(59, 17);
+			this->rB_y_Negatif->TabIndex = 1;
+			this->rB_y_Negatif->TabStop = true;
+			this->rB_y_Negatif->Text = L"Negatif";
+			this->rB_y_Negatif->UseVisualStyleBackColor = true;
+			// 
+			// btn_y_resimekle
+			// 
+			this->btn_y_resimekle->Location = System::Drawing::Point(6, 19);
+			this->btn_y_resimekle->Name = L"btn_y_resimekle";
+			this->btn_y_resimekle->Size = System::Drawing::Size(75, 23);
+			this->btn_y_resimekle->TabIndex = 0;
+			this->btn_y_resimekle->Text = L"Resim Ekle";
+			this->btn_y_resimekle->UseVisualStyleBackColor = true;
+			this->btn_y_resimekle->Click += gcnew System::EventHandler(this, &MyForm::btn_y_resimekle_Click);
 			// 
 			// MyForm
 			// 
@@ -631,6 +911,14 @@ namespace Project1 {
 			this->tabPage3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pBox_fitreli))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pBox_orjinal))->EndInit();
+			this->btn_->ResumeLayout(false);
+			this->btn_->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->tabPage4->ResumeLayout(false);
+			this->tabPage4->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -759,12 +1047,12 @@ private: System::Void btn_fitrele_Click(System::Object^  sender, System::EventAr
 						 for (int b = -1; b < 2; b++){
 
 							 if (rB_eksi4->Checked){
-								 img_new.at<uchar>(i, j) = eksi4[a][b] * img.at<uchar>(i, j);
+								 img_new.at<uchar>(i, j) += eksi4[a][b] * img.at<uchar>(i, j);
 								 
 							 }
-							 else if (rB_arti4->Checked){ img_new.at<uchar>(i, j) = arti4[a][b] * img.at<uchar>(i, j); }
-							 else if (rB_eksi8->Checked){ img_new.at<uchar>(i, j) = eksi8[a][b] * img.at<uchar>(i, j); }
-							 else if (rB_arti8->Checked){ img_new.at<uchar>(i, j) = arti8[a][b] * img.at<uchar>(i, j); }
+							 else if (rB_arti4->Checked){ img_new.at<uchar>(i, j) += arti4[a][b] * img.at<uchar>(i, j); }
+							 else if (rB_eksi8->Checked){ img_new.at<uchar>(i, j) += eksi8[a][b] * img.at<uchar>(i, j); }
+							 else if (rB_arti8->Checked){ img_new.at<uchar>(i, j) += arti8[a][b] * img.at<uchar>(i, j); }
 						 }
 					 }
 				 }
@@ -774,6 +1062,54 @@ private: System::Void btn_fitrele_Click(System::Object^  sender, System::EventAr
 			 this->pBox_fitreli->Image =
 				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
 
+}
+private: System::Void btn_y_resimekle_Click(System::Object^  sender, System::EventArgs^  e) {
+			 IplImage* img = cvLoadImage("D:/images/s_gray.jpg", 1);
+			 this->pB_1->Image =
+				 gcnew System::Drawing::Bitmap(img->width, img->height, img->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img->imageData);
+			
+}
+
+
+private: System::Void b_filtre_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			 Mat img = imread("D:/images/s.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 if (rB_y_gama->Checked)
+			 {
+				 for (int i = 1; i < img.rows - 1; i++)
+					 for (int j = 1; j < img.cols - 1; j++)
+						 img.at<uchar>(i, j) = 122;
+			 }
+			 Mat img_new = img.clone();
+			 
+
+			 int a, b; double c,gama=2.5;
+			 
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 if (rB_y_Negatif->Checked){
+						 img_new.at<uchar>(i, j) = 255-img.at<uchar>(i, j) - 1;
+					 }
+					 if (rB_y_log->Checked){
+						 c = 255 / log10(img.at<uchar>(i, j)+1);
+						 img_new.at<uchar>(i, j) = c*log10(1+img.at<uchar>(i, j));
+					 }
+					 if (rB_y_gama->Checked){
+						 img_new.at<uchar>(i, j) = pow( img.at<uchar>(i, j),gama);
+					 }
+					 if (rB_y_terslog->Checked){
+						 lbl_y_done->Text = "Yapým Aþamasýnda";
+					 }
+					 if (rB_y_esik->Checked){
+						 if (img.at<uchar>(i, j) < 100){ img_new.at<uchar>(i, j) = 0; }
+						 else { img_new.at<uchar>(i, j) = 255; }
+					 }
+				 }
+			 }
+			 imwrite("D:/images/s_gray_y_yeginlik.jpg", img_new);
+			 IplImage* img3 = cvLoadImage("D:/images/s_gray_y_yeginlik.jpg", 1);
+			 this->pB_2->Image =
+				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
 }
 };
 }
