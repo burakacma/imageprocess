@@ -119,7 +119,8 @@ namespace Project1 {
 
 	private: System::Windows::Forms::RadioButton^  rB_y_gama;
 
-	private: System::Windows::Forms::RadioButton^  radioButton6;
+
+
 	private: System::Windows::Forms::RadioButton^  rB_y_log;
 	private: System::Windows::Forms::RadioButton^  rB_y_terslog;
 	private: System::Windows::Forms::RadioButton^  rB_y_Negatif;
@@ -128,6 +129,31 @@ private: System::Windows::Forms::PictureBox^  pB_2;
 private: System::Windows::Forms::PictureBox^  pB_1;
 private: System::Windows::Forms::Button^  b_filtre;
 private: System::Windows::Forms::Label^  lbl_y_done;
+private: System::Windows::Forms::TabPage^  tabPage5;
+private: System::Windows::Forms::Button^  btn_browse;
+private: System::Windows::Forms::TextBox^  tbx_gama;
+private: System::Windows::Forms::Button^  btn_histogram;
+private: System::Windows::Forms::PictureBox^  pB_histogram;
+private: System::Windows::Forms::DataVisualization::Charting::Chart^  chart_his;
+private: System::Windows::Forms::TabPage^  tabPage6;
+private: System::Windows::Forms::Label^  label7;
+private: System::Windows::Forms::TextBox^  textBox1;
+private: System::Windows::Forms::Label^  label6;
+private: System::Windows::Forms::RadioButton^  rB_bitDeger;
+private: System::Windows::Forms::RadioButton^  rB_bol;
+private: System::Windows::Forms::RadioButton^  rB_carp;
+private: System::Windows::Forms::RadioButton^  rb_Fark;
+private: System::Windows::Forms::RadioButton^  rb_topla;
+private: System::Windows::Forms::Label^  label5;
+private: System::Windows::Forms::Button^  btn_i_yap;
+private: System::Windows::Forms::Button^  btn_i_resimekle;
+private: System::Windows::Forms::PictureBox^  pB_i_3;
+
+private: System::Windows::Forms::PictureBox^  pB_i_2;
+private: System::Windows::Forms::PictureBox^  pB_i_1;
+
+
+
 
 
 
@@ -161,6 +187,9 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->lbl_sayi2Y = (gcnew System::Windows::Forms::Label());
@@ -212,17 +241,37 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->btn_m_fitrele = (gcnew System::Windows::Forms::Button());
 			this->btn_m_rekle = (gcnew System::Windows::Forms::Button());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->tbx_gama = (gcnew System::Windows::Forms::TextBox());
 			this->lbl_y_done = (gcnew System::Windows::Forms::Label());
 			this->b_filtre = (gcnew System::Windows::Forms::Button());
 			this->pB_2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pB_1 = (gcnew System::Windows::Forms::PictureBox());
 			this->rB_y_esik = (gcnew System::Windows::Forms::RadioButton());
 			this->rB_y_gama = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
 			this->rB_y_log = (gcnew System::Windows::Forms::RadioButton());
 			this->rB_y_terslog = (gcnew System::Windows::Forms::RadioButton());
 			this->rB_y_Negatif = (gcnew System::Windows::Forms::RadioButton());
 			this->btn_y_resimekle = (gcnew System::Windows::Forms::Button());
+			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->chart_his = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->btn_histogram = (gcnew System::Windows::Forms::Button());
+			this->pB_histogram = (gcnew System::Windows::Forms::PictureBox());
+			this->btn_browse = (gcnew System::Windows::Forms::Button());
+			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
+			this->pB_i_3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pB_i_2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pB_i_1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->rB_bitDeger = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_bol = (gcnew System::Windows::Forms::RadioButton());
+			this->rB_carp = (gcnew System::Windows::Forms::RadioButton());
+			this->rb_Fark = (gcnew System::Windows::Forms::RadioButton());
+			this->rb_topla = (gcnew System::Windows::Forms::RadioButton());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->btn_i_yap = (gcnew System::Windows::Forms::Button());
+			this->btn_i_resimekle = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox_kor))->BeginInit();
@@ -238,6 +287,13 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->tabPage4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_1))->BeginInit();
+			this->tabPage5->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart_his))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_histogram))->BeginInit();
+			this->tabPage6->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -247,6 +303,8 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->btn_);
 			this->tabControl1->Controls->Add(this->tabPage4);
+			this->tabControl1->Controls->Add(this->tabPage5);
+			this->tabControl1->Controls->Add(this->tabPage6);
 			this->tabControl1->Location = System::Drawing::Point(2, 1);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -431,6 +489,7 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->picBox_kor->Location = System::Drawing::Point(6, 6);
 			this->picBox_kor->Name = L"picBox_kor";
 			this->picBox_kor->Size = System::Drawing::Size(296, 282);
+			this->picBox_kor->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picBox_kor->TabIndex = 23;
 			this->picBox_kor->TabStop = false;
 			this->picBox_kor->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::picBox_kor_MouseClick);
@@ -688,7 +747,6 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->radioButton4->Name = L"radioButton4";
 			this->radioButton4->Size = System::Drawing::Size(85, 17);
 			this->radioButton4->TabIndex = 7;
-			this->radioButton4->TabStop = true;
 			this->radioButton4->Text = L"radioButton4";
 			this->radioButton4->UseVisualStyleBackColor = true;
 			// 
@@ -699,7 +757,6 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(85, 17);
 			this->radioButton3->TabIndex = 6;
-			this->radioButton3->TabStop = true;
 			this->radioButton3->Text = L"radioButton3";
 			this->radioButton3->UseVisualStyleBackColor = true;
 			// 
@@ -710,13 +767,13 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->rB_m_negatif->Name = L"rB_m_negatif";
 			this->rB_m_negatif->Size = System::Drawing::Size(59, 17);
 			this->rB_m_negatif->TabIndex = 5;
-			this->rB_m_negatif->TabStop = true;
 			this->rB_m_negatif->Text = L"Negatif";
 			this->rB_m_negatif->UseVisualStyleBackColor = true;
 			// 
 			// rB_Mean
 			// 
 			this->rB_Mean->AutoSize = true;
+			this->rB_Mean->Checked = true;
 			this->rB_Mean->Location = System::Drawing::Point(18, 59);
 			this->rB_Mean->Name = L"rB_Mean";
 			this->rB_Mean->Size = System::Drawing::Size(75, 17);
@@ -751,6 +808,7 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->btn_m_fitrele->TabIndex = 1;
 			this->btn_m_fitrele->Text = L"Filtrele";
 			this->btn_m_fitrele->UseVisualStyleBackColor = true;
+			this->btn_m_fitrele->Click += gcnew System::EventHandler(this, &MyForm::btn_m_fitrele_Click);
 			// 
 			// btn_m_rekle
 			// 
@@ -763,13 +821,13 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			// 
 			// tabPage4
 			// 
+			this->tabPage4->Controls->Add(this->tbx_gama);
 			this->tabPage4->Controls->Add(this->lbl_y_done);
 			this->tabPage4->Controls->Add(this->b_filtre);
 			this->tabPage4->Controls->Add(this->pB_2);
 			this->tabPage4->Controls->Add(this->pB_1);
 			this->tabPage4->Controls->Add(this->rB_y_esik);
 			this->tabPage4->Controls->Add(this->rB_y_gama);
-			this->tabPage4->Controls->Add(this->radioButton6);
 			this->tabPage4->Controls->Add(this->rB_y_log);
 			this->tabPage4->Controls->Add(this->rB_y_terslog);
 			this->tabPage4->Controls->Add(this->rB_y_Negatif);
@@ -782,6 +840,14 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->tabPage4->Text = L"Yeðinlik Dönüþüm Fonk.";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
+			// tbx_gama
+			// 
+			this->tbx_gama->Location = System::Drawing::Point(66, 136);
+			this->tbx_gama->Name = L"tbx_gama";
+			this->tbx_gama->Size = System::Drawing::Size(36, 20);
+			this->tbx_gama->TabIndex = 8;
+			this->tbx_gama->Text = L"0";
+			// 
 			// lbl_y_done
 			// 
 			this->lbl_y_done->AutoSize = true;
@@ -793,7 +859,7 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			// 
 			// b_filtre
 			// 
-			this->b_filtre->Location = System::Drawing::Point(3, 219);
+			this->b_filtre->Location = System::Drawing::Point(7, 238);
 			this->b_filtre->Name = L"b_filtre";
 			this->b_filtre->Size = System::Drawing::Size(75, 23);
 			this->b_filtre->TabIndex = 6;
@@ -839,16 +905,6 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->rB_y_gama->Text = L"Gama";
 			this->rB_y_gama->UseVisualStyleBackColor = true;
 			// 
-			// radioButton6
-			// 
-			this->radioButton6->AutoSize = true;
-			this->radioButton6->Location = System::Drawing::Point(7, 182);
-			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(85, 17);
-			this->radioButton6->TabIndex = 3;
-			this->radioButton6->Text = L"radioButton6";
-			this->radioButton6->UseVisualStyleBackColor = true;
-			// 
 			// rB_y_log
 			// 
 			this->rB_y_log->AutoSize = true;
@@ -891,6 +947,226 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->btn_y_resimekle->UseVisualStyleBackColor = true;
 			this->btn_y_resimekle->Click += gcnew System::EventHandler(this, &MyForm::btn_y_resimekle_Click);
 			// 
+			// tabPage5
+			// 
+			this->tabPage5->Controls->Add(this->chart_his);
+			this->tabPage5->Controls->Add(this->btn_histogram);
+			this->tabPage5->Controls->Add(this->pB_histogram);
+			this->tabPage5->Controls->Add(this->btn_browse);
+			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Name = L"tabPage5";
+			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage5->Size = System::Drawing::Size(811, 415);
+			this->tabPage5->TabIndex = 5;
+			this->tabPage5->Text = L"Histogram";
+			this->tabPage5->UseVisualStyleBackColor = true;
+			// 
+			// chart_his
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->chart_his->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart_his->Legends->Add(legend1);
+			this->chart_his->Location = System::Drawing::Point(207, 6);
+			this->chart_his->Name = L"chart_his";
+			this->chart_his->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SemiTransparent;
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Pixel";
+			this->chart_his->Series->Add(series1);
+			this->chart_his->Size = System::Drawing::Size(553, 300);
+			this->chart_his->TabIndex = 3;
+			this->chart_his->Text = L"Histogram Grafiði";
+			this->chart_his->Visible = false;
+			// 
+			// btn_histogram
+			// 
+			this->btn_histogram->Location = System::Drawing::Point(64, 213);
+			this->btn_histogram->Name = L"btn_histogram";
+			this->btn_histogram->Size = System::Drawing::Size(75, 23);
+			this->btn_histogram->TabIndex = 2;
+			this->btn_histogram->Text = L"Histogram";
+			this->btn_histogram->UseVisualStyleBackColor = true;
+			this->btn_histogram->Click += gcnew System::EventHandler(this, &MyForm::btn_histogram_Click);
+			// 
+			// pB_histogram
+			// 
+			this->pB_histogram->Location = System::Drawing::Point(6, 52);
+			this->pB_histogram->Name = L"pB_histogram";
+			this->pB_histogram->Size = System::Drawing::Size(195, 155);
+			this->pB_histogram->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_histogram->TabIndex = 1;
+			this->pB_histogram->TabStop = false;
+			// 
+			// btn_browse
+			// 
+			this->btn_browse->Location = System::Drawing::Point(64, 23);
+			this->btn_browse->Name = L"btn_browse";
+			this->btn_browse->Size = System::Drawing::Size(75, 23);
+			this->btn_browse->TabIndex = 0;
+			this->btn_browse->Text = L"Resim Ekle";
+			this->btn_browse->UseVisualStyleBackColor = true;
+			this->btn_browse->Click += gcnew System::EventHandler(this, &MyForm::btn_browse_Click);
+			// 
+			// tabPage6
+			// 
+			this->tabPage6->Controls->Add(this->pB_i_3);
+			this->tabPage6->Controls->Add(this->pB_i_2);
+			this->tabPage6->Controls->Add(this->pB_i_1);
+			this->tabPage6->Controls->Add(this->label7);
+			this->tabPage6->Controls->Add(this->textBox1);
+			this->tabPage6->Controls->Add(this->label6);
+			this->tabPage6->Controls->Add(this->rB_bitDeger);
+			this->tabPage6->Controls->Add(this->rB_bol);
+			this->tabPage6->Controls->Add(this->rB_carp);
+			this->tabPage6->Controls->Add(this->rb_Fark);
+			this->tabPage6->Controls->Add(this->rb_topla);
+			this->tabPage6->Controls->Add(this->label5);
+			this->tabPage6->Controls->Add(this->btn_i_yap);
+			this->tabPage6->Controls->Add(this->btn_i_resimekle);
+			this->tabPage6->Location = System::Drawing::Point(4, 22);
+			this->tabPage6->Name = L"tabPage6";
+			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage6->Size = System::Drawing::Size(811, 415);
+			this->tabPage6->TabIndex = 6;
+			this->tabPage6->Text = L"4 Ýþlem";
+			this->tabPage6->UseVisualStyleBackColor = true;
+			// 
+			// pB_i_3
+			// 
+			this->pB_i_3->Location = System::Drawing::Point(617, 6);
+			this->pB_i_3->Name = L"pB_i_3";
+			this->pB_i_3->Size = System::Drawing::Size(188, 160);
+			this->pB_i_3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_i_3->TabIndex = 13;
+			this->pB_i_3->TabStop = false;
+			// 
+			// pB_i_2
+			// 
+			this->pB_i_2->Location = System::Drawing::Point(391, 6);
+			this->pB_i_2->Name = L"pB_i_2";
+			this->pB_i_2->Size = System::Drawing::Size(188, 160);
+			this->pB_i_2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_i_2->TabIndex = 12;
+			this->pB_i_2->TabStop = false;
+			// 
+			// pB_i_1
+			// 
+			this->pB_i_1->Location = System::Drawing::Point(174, 6);
+			this->pB_i_1->Name = L"pB_i_1";
+			this->pB_i_1->Size = System::Drawing::Size(188, 160);
+			this->pB_i_1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pB_i_1->TabIndex = 11;
+			this->pB_i_1->TabStop = false;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(6, 166);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(128, 13);
+			this->label7->TabIndex = 10;
+			this->label7->Text = L"0-7 Arasýnda deðer giriniz.";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(9, 182);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(38, 20);
+			this->textBox1->TabIndex = 9;
+			this->textBox1->Text = L"0";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(36, 153);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(91, 13);
+			this->label6->TabIndex = 8;
+			this->label6->Text = L"Hangi Biti 0 Olsun";
+			// 
+			// rB_bitDeger
+			// 
+			this->rB_bitDeger->AutoSize = true;
+			this->rB_bitDeger->Location = System::Drawing::Point(3, 133);
+			this->rB_bitDeger->Name = L"rB_bitDeger";
+			this->rB_bitDeger->Size = System::Drawing::Size(124, 17);
+			this->rB_bitDeger->TabIndex = 7;
+			this->rB_bitDeger->TabStop = true;
+			this->rB_bitDeger->Text = L"Bit Deðerini 0 Yapma";
+			this->rB_bitDeger->UseVisualStyleBackColor = true;
+			// 
+			// rB_bol
+			// 
+			this->rB_bol->AutoSize = true;
+			this->rB_bol->Location = System::Drawing::Point(64, 97);
+			this->rB_bol->Name = L"rB_bol";
+			this->rB_bol->Size = System::Drawing::Size(40, 17);
+			this->rB_bol->TabIndex = 6;
+			this->rB_bol->Text = L"Böl";
+			this->rB_bol->UseVisualStyleBackColor = true;
+			// 
+			// rB_carp
+			// 
+			this->rB_carp->AutoSize = true;
+			this->rB_carp->Location = System::Drawing::Point(6, 97);
+			this->rB_carp->Name = L"rB_carp";
+			this->rB_carp->Size = System::Drawing::Size(47, 17);
+			this->rB_carp->TabIndex = 5;
+			this->rB_carp->Text = L"Çarp";
+			this->rB_carp->UseVisualStyleBackColor = true;
+			// 
+			// rb_Fark
+			// 
+			this->rb_Fark->AutoSize = true;
+			this->rb_Fark->Location = System::Drawing::Point(64, 74);
+			this->rb_Fark->Name = L"rb_Fark";
+			this->rb_Fark->Size = System::Drawing::Size(46, 17);
+			this->rb_Fark->TabIndex = 4;
+			this->rb_Fark->Text = L"Fark";
+			this->rb_Fark->UseVisualStyleBackColor = true;
+			// 
+			// rb_topla
+			// 
+			this->rb_topla->AutoSize = true;
+			this->rb_topla->Checked = true;
+			this->rb_topla->Location = System::Drawing::Point(6, 74);
+			this->rb_topla->Name = L"rb_topla";
+			this->rb_topla->Size = System::Drawing::Size(52, 17);
+			this->rb_topla->TabIndex = 3;
+			this->rb_topla->TabStop = true;
+			this->rb_topla->Text = L"Topla";
+			this->rb_topla->UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(6, 43);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(68, 13);
+			this->label5->TabIndex = 2;
+			this->label5->Text = L"Ýþlem Seçiniz";
+			// 
+			// btn_i_yap
+			// 
+			this->btn_i_yap->Location = System::Drawing::Point(6, 250);
+			this->btn_i_yap->Name = L"btn_i_yap";
+			this->btn_i_yap->Size = System::Drawing::Size(75, 23);
+			this->btn_i_yap->TabIndex = 1;
+			this->btn_i_yap->Text = L"Ýþle";
+			this->btn_i_yap->UseVisualStyleBackColor = true;
+			this->btn_i_yap->Click += gcnew System::EventHandler(this, &MyForm::btn_i_yap_Click);
+			// 
+			// btn_i_resimekle
+			// 
+			this->btn_i_resimekle->Location = System::Drawing::Point(6, 6);
+			this->btn_i_resimekle->Name = L"btn_i_resimekle";
+			this->btn_i_resimekle->Size = System::Drawing::Size(75, 23);
+			this->btn_i_resimekle->TabIndex = 0;
+			this->btn_i_resimekle->Text = L"Resim Ekle";
+			this->btn_i_resimekle->UseVisualStyleBackColor = true;
+			this->btn_i_resimekle->Click += gcnew System::EventHandler(this, &MyForm::btn_i_resimekle_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -919,6 +1195,14 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 			this->tabPage4->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_1))->EndInit();
+			this->tabPage5->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart_his))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_histogram))->EndInit();
+			this->tabPage6->ResumeLayout(false);
+			this->tabPage6->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -1083,7 +1367,8 @@ private: System::Void b_filtre_Click(System::Object^  sender, System::EventArgs^
 			 Mat img_new = img.clone();
 			 
 
-			 int a, b; double c,gama=2.5;
+			 int a, b; double c,gama;
+			 gama = Convert::ToDouble(tbx_gama->Text);
 			 
 			 for (int i = 1; i < img.rows - 1; i++){
 				 for (int j = 1; j < img.cols - 1; j++){
@@ -1101,15 +1386,107 @@ private: System::Void b_filtre_Click(System::Object^  sender, System::EventArgs^
 						 lbl_y_done->Text = "Yapým Aþamasýnda";
 					 }
 					 if (rB_y_esik->Checked){
-						 if (img.at<uchar>(i, j) < 100){ img_new.at<uchar>(i, j) = 0; }
+						 if (img.at<uchar>(i, j) < 230){ img_new.at<uchar>(i, j) = 0; }
 						 else { img_new.at<uchar>(i, j) = 255; }
 					 }
+					 
 				 }
 			 }
 			 imwrite("D:/images/s_gray_y_yeginlik.jpg", img_new);
 			 IplImage* img3 = cvLoadImage("D:/images/s_gray_y_yeginlik.jpg", 1);
 			 this->pB_2->Image =
 				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
+}
+private: System::Void btn_browse_Click(System::Object^  sender, System::EventArgs^  e) {
+			 IplImage* img = cvLoadImage("D:/images/s_gray.jpg", 1);
+			 this->pB_histogram->Image =
+				 gcnew System::Drawing::Bitmap(img->width, img->height, img->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img->imageData);
+
+}
+private: System::Void btn_histogram_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Mat img = imread("D:/images/kizilotesi_toplam.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 int His[257] = {0};
+			 chart_his->Visible = true;
+
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 His[img.at<uchar>(i, j)]++;
+					 
+				 }
+			 }
+			 for (int i = 0; i < 256; i++)
+			 {
+				 chart_his->Series["Pixel"]->Points->AddXY(i, His[i]);
+			 }
+			 
+
+}
+private: System::Void btn_i_yap_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Mat img = imread("D:/images/kizilotesi.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 Mat img_new = img.clone();
+			 Mat img_new2 = img.clone();
+			 int t1, t2, min, max, min2, max2;
+			 int dizi[256][256] = {};
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 img_new.at<uchar>(i, j) = img.at<uchar>(i, j) & 239;
+				 }
+			 }
+			 imwrite("D:/images/kizilotesi_eksikbit.jpg", img_new);
+			 IplImage* img3 = cvLoadImage("D:/images/kizilotesi_eksikbit.jpg", 1);
+			 this->pB_i_2->Image =
+				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
+
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 img_new.at<uchar>(i, j) = (img_new.at<uchar>(i, j) + img.at<uchar>(i, j))/2;
+				 }
+			 }
+			/* for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 dizi[i][j] = img_new.at<uchar>(i, j);
+					 img_new2.at<uchar>(i, j) = (img_new.at<uchar>(i, j)+t1)*t2;
+
+				 }
+			 }*/
+			 imwrite("D:/images/kizilotesi_toplam.jpg", img_new);
+			 IplImage* img4 = cvLoadImage("D:/images/kizilotesi_toplam.jpg", 1);
+			 this->pB_i_3->Image =
+				 gcnew System::Drawing::Bitmap(img4->width, img4->height, img4->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img4->imageData);
+
+
+
+}
+private: System::Void btn_i_resimekle_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Mat img = imread("D:/images/kizilotesi.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 imwrite("D:/images/kizilotesi_gray.jpg", img);
+			 IplImage* img3 = cvLoadImage("D:/images/kizilotesi_gray.jpg", 1);
+			 this->pB_i_1->Image =
+				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
+
+}
+private: System::Void btn_m_fitrele_Click(System::Object^  sender, System::EventArgs^  e) {
+			/* Mat img = imread("D:/images/kizilotesi.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 Mat img_new = img.clone();
+			 float sum;
+			 float kernel[3][3] = {
+				 { 1 / 9.0, 1 / 9.0, 1 / 9.0 }, { 1 / 9.0, 1 / 9.0, 1 / 9.0 }, { 1 / 9.0, 1 / 9.0, 1 / 9.0 }
+			 };
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 if (rB_Mean->Checked){
+						 sum = 0.0;
+						 for (int k = -1; i < 2; k++){
+							 for (int l = -1; j < 2; l++){
+								 sum = sum + kernel[k + 1][l + 1] * img.at<uchar>(i - l, j - k);
+							 }
+						 }
+						 img_new.at<uchar>(i, j) = sum;
+					 }
+					 imwrite("D:/images/kizilotesi_mean.jpg", img_new);
+				 
+				 }
+			 }*/
 }
 };
 }
