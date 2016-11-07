@@ -132,7 +132,7 @@ private: System::Windows::Forms::Label^  lbl_y_done;
 private: System::Windows::Forms::TabPage^  tabPage5;
 private: System::Windows::Forms::Button^  btn_browse;
 private: System::Windows::Forms::TextBox^  tbx_gama;
-private: System::Windows::Forms::Button^  btn_histogram;
+
 private: System::Windows::Forms::PictureBox^  pB_histogram;
 private: System::Windows::Forms::DataVisualization::Charting::Chart^  chart_his;
 private: System::Windows::Forms::TabPage^  tabPage6;
@@ -151,6 +151,7 @@ private: System::Windows::Forms::PictureBox^  pB_i_3;
 
 private: System::Windows::Forms::PictureBox^  pB_i_2;
 private: System::Windows::Forms::PictureBox^  pB_i_1;
+private: System::Windows::Forms::Button^  btn_hisesit;
 
 
 
@@ -190,6 +191,7 @@ private: System::Windows::Forms::PictureBox^  pB_i_1;
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->lbl_sayi2Y = (gcnew System::Windows::Forms::Label());
@@ -253,8 +255,8 @@ private: System::Windows::Forms::PictureBox^  pB_i_1;
 			this->rB_y_Negatif = (gcnew System::Windows::Forms::RadioButton());
 			this->btn_y_resimekle = (gcnew System::Windows::Forms::Button());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->btn_hisesit = (gcnew System::Windows::Forms::Button());
 			this->chart_his = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->btn_histogram = (gcnew System::Windows::Forms::Button());
 			this->pB_histogram = (gcnew System::Windows::Forms::PictureBox());
 			this->btn_browse = (gcnew System::Windows::Forms::Button());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
@@ -949,8 +951,8 @@ private: System::Windows::Forms::PictureBox^  pB_i_1;
 			// 
 			// tabPage5
 			// 
+			this->tabPage5->Controls->Add(this->btn_hisesit);
 			this->tabPage5->Controls->Add(this->chart_his);
-			this->tabPage5->Controls->Add(this->btn_histogram);
 			this->tabPage5->Controls->Add(this->pB_histogram);
 			this->tabPage5->Controls->Add(this->btn_browse);
 			this->tabPage5->Location = System::Drawing::Point(4, 22);
@@ -960,6 +962,16 @@ private: System::Windows::Forms::PictureBox^  pB_i_1;
 			this->tabPage5->TabIndex = 5;
 			this->tabPage5->Text = L"Histogram";
 			this->tabPage5->UseVisualStyleBackColor = true;
+			// 
+			// btn_hisesit
+			// 
+			this->btn_hisesit->Location = System::Drawing::Point(38, 255);
+			this->btn_hisesit->Name = L"btn_hisesit";
+			this->btn_hisesit->Size = System::Drawing::Size(137, 23);
+			this->btn_hisesit->TabIndex = 4;
+			this->btn_hisesit->Text = L"Histogram Eþitleme";
+			this->btn_hisesit->UseVisualStyleBackColor = true;
+			this->btn_hisesit->Click += gcnew System::EventHandler(this, &MyForm::btn_hisesit_Click);
 			// 
 			// chart_his
 			// 
@@ -972,22 +984,16 @@ private: System::Windows::Forms::PictureBox^  pB_i_1;
 			this->chart_his->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SemiTransparent;
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
-			series1->Name = L"Pixel";
+			series1->Name = L"ilkhist";
+			series2->ChartArea = L"ChartArea1";
+			series2->Legend = L"Legend1";
+			series2->Name = L"esitlenmisHist";
 			this->chart_his->Series->Add(series1);
-			this->chart_his->Size = System::Drawing::Size(553, 300);
+			this->chart_his->Series->Add(series2);
+			this->chart_his->Size = System::Drawing::Size(598, 363);
 			this->chart_his->TabIndex = 3;
 			this->chart_his->Text = L"Histogram Grafiði";
 			this->chart_his->Visible = false;
-			// 
-			// btn_histogram
-			// 
-			this->btn_histogram->Location = System::Drawing::Point(64, 213);
-			this->btn_histogram->Name = L"btn_histogram";
-			this->btn_histogram->Size = System::Drawing::Size(75, 23);
-			this->btn_histogram->TabIndex = 2;
-			this->btn_histogram->Text = L"Histogram";
-			this->btn_histogram->UseVisualStyleBackColor = true;
-			this->btn_histogram->Click += gcnew System::EventHandler(this, &MyForm::btn_histogram_Click);
 			// 
 			// pB_histogram
 			// 
@@ -1380,7 +1386,7 @@ private: System::Void b_filtre_Click(System::Object^  sender, System::EventArgs^
 						 img_new.at<uchar>(i, j) = c*log10(1+img.at<uchar>(i, j));
 					 }
 					 if (rB_y_gama->Checked){
-						 img_new.at<uchar>(i, j) = pow( img.at<uchar>(i, j),gama);
+						 img_new.at<uchar>(i, j) = 100*pow( img.at<uchar>(i, j),gama);
 					 }
 					 if (rB_y_terslog->Checked){
 						 lbl_y_done->Text = "Yapým Aþamasýnda";
@@ -1392,7 +1398,8 @@ private: System::Void b_filtre_Click(System::Object^  sender, System::EventArgs^
 					 
 				 }
 			 }
-			 imwrite("D:/images/s_gray_y_yeginlik.jpg", img_new);
+			 Mat img_hisnew = histogramesitleme(img_new);
+			 imwrite("D:/images/s_gray_y_yeginlik.jpg", img_hisnew);
 			 IplImage* img3 = cvLoadImage("D:/images/s_gray_y_yeginlik.jpg", 1);
 			 this->pB_2->Image =
 				 gcnew System::Drawing::Bitmap(img3->width, img3->height, img3->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img3->imageData);
@@ -1487,6 +1494,94 @@ private: System::Void btn_m_fitrele_Click(System::Object^  sender, System::Event
 				 
 				 }
 			 }*/
+}
+		 public: Mat histogramesitleme(Mat image){
+					 int size = image.rows * image.cols;
+					 Mat new_image = image.clone();
+					 int histogram[256]; double cumhistogram[256]; double ratiohistogram[256];
+					 int scalehistogram[256]; double esithistogram[256] = { 0 }; int final[256];
+					// gelen resmin Histogramýný oluþturma (A)
+					 for (int i = 0; i < 256; i++)
+					 {
+						 histogram[i] = 0;
+					 }
+					 for (int y = 0; y < image.rows; y++)
+					 for (int x = 0; x < image.cols; x++)
+						 histogram[(int)image.at<uchar>(y, x)]++;
+					// (A) Bitti
+					//*  Birikimli yüzde oranlarý hesaplanýr. (B)
+					 float alpha = 255.0 / size;
+					//* (B) Bitti
+					//  oluþturulan histogramýn oranýný hesapladýk; c
+					 for (int i = 0; i < 256; i++)
+					 {
+						 ratiohistogram[i] = (double)histogram[i] / size;
+					 }
+					// c bitti
+					 //
+					 cumhistogram[0] = histogram[0];
+
+					 for (int i = 1; i < 256; i++)
+					 {
+						 cumhistogram[i] = histogram[i] + cumhistogram[i - 1];
+					 }
+					 //
+					 //
+					 for (int i = 0; i < 256; i++)
+					 {
+						 scalehistogram[i] = cvRound((double)cumhistogram[i] * alpha);
+					 }
+					 //
+					 //
+					 for (int i = 0; i < 256; i++)
+					 {
+						 esithistogram[i] = 0;
+					 }
+
+					 for (int i = 0; i < 256; i++)
+					 {
+						 esithistogram[scalehistogram[i]] += ratiohistogram[i];
+					 }
+
+					 
+					 for (int i = 0; i < 256; i++)
+						 final[i] = cvRound(esithistogram[i] * 255);
+					 //
+					 // Generate the equlized image
+					 
+
+					 for (int y = 0; y < image.rows; y++)
+					 for (int x = 0; x < image.cols; x++)
+						 new_image.at<uchar>(y, x) = saturate_cast<uchar>(scalehistogram[image.at<uchar>(y, x)]);
+
+					 return new_image;
+		 }
+private: System::Void btn_hisesit_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			 Mat img = imread("D:/images/h/2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+
+			 Mat his_esit = histogramesitleme(img);
+
+			 int His[257] = { 0 }, his_new[256] = { 0 };
+			 chart_his->Visible = true;
+
+			 for (int i = 1; i < img.rows - 1; i++){
+				 for (int j = 1; j < img.cols - 1; j++){
+					 His[img.at<uchar>(i, j)]++;
+					 his_new[his_esit.at<uchar>(i,j)]++;
+				 }
+			 }
+			 for (int i = 0; i < 256; i++)
+			 {
+
+				 chart_his->Series["ilkhist"]->Points->AddXY(i, His[i]);
+				 chart_his->Series["esitlenmisHist"]->Points->AddXY(i, his_new[i]);
+			 }
+			 imwrite("D:/images/h/h_esithis.jpg", his_esit);
+			 imwrite("D:/images/h/h.jpg", img);
+
+
+
 }
 };
 }
