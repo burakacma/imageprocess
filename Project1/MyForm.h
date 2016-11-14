@@ -57,7 +57,7 @@ namespace Project1 {
 
 
 
-
+	public:  System::String^ a;
 	private: System::Drawing::Graphics^ globalGraphics;
 	private: System::Windows::Forms::TabControl^  tabControl1;
 	private: System::Windows::Forms::TabPage^  tabPage1;
@@ -152,6 +152,14 @@ private: System::Windows::Forms::PictureBox^  pB_i_3;
 private: System::Windows::Forms::PictureBox^  pB_i_2;
 private: System::Windows::Forms::PictureBox^  pB_i_1;
 private: System::Windows::Forms::Button^  btn_hisesit;
+private: System::Windows::Forms::Button^  btn_sobel;
+private: System::Windows::Forms::Label^  label8;
+private: System::Windows::Forms::TabPage^  tabPage7;
+private: System::Windows::Forms::Button^  button2;
+private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
+private: System::Windows::Forms::FolderBrowserDialog^  folderBrowserDialog1;
+private: System::Windows::Forms::Label^  label9;
+private: System::Windows::Forms::Label^  label10;
 
 
 
@@ -234,6 +242,8 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			this->btn_fitrele = (gcnew System::Windows::Forms::Button());
 			this->btn_lf_Ekle = (gcnew System::Windows::Forms::Button());
 			this->btn_ = (gcnew System::Windows::Forms::TabPage());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->btn_sobel = (gcnew System::Windows::Forms::Button());
 			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->rB_m_negatif = (gcnew System::Windows::Forms::RadioButton());
@@ -274,6 +284,12 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->btn_i_yap = (gcnew System::Windows::Forms::Button());
 			this->btn_i_resimekle = (gcnew System::Windows::Forms::Button());
+			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox_kor))->BeginInit();
@@ -296,6 +312,7 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_1))->BeginInit();
+			this->tabPage7->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -307,6 +324,7 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Controls->Add(this->tabPage5);
 			this->tabControl1->Controls->Add(this->tabPage6);
+			this->tabControl1->Controls->Add(this->tabPage7);
 			this->tabControl1->Location = System::Drawing::Point(2, 1);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -726,6 +744,8 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			// 
 			// btn_
 			// 
+			this->btn_->Controls->Add(this->label8);
+			this->btn_->Controls->Add(this->btn_sobel);
 			this->btn_->Controls->Add(this->radioButton4);
 			this->btn_->Controls->Add(this->radioButton3);
 			this->btn_->Controls->Add(this->rB_m_negatif);
@@ -741,6 +761,25 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			this->btn_->TabIndex = 3;
 			this->btn_->Text = L"Filter";
 			this->btn_->UseVisualStyleBackColor = true;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(163, 341);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(35, 13);
+			this->label8->TabIndex = 9;
+			this->label8->Text = L"label8";
+			// 
+			// btn_sobel
+			// 
+			this->btn_sobel->Location = System::Drawing::Point(28, 226);
+			this->btn_sobel->Name = L"btn_sobel";
+			this->btn_sobel->Size = System::Drawing::Size(75, 23);
+			this->btn_sobel->TabIndex = 8;
+			this->btn_sobel->Text = L"Sobel";
+			this->btn_sobel->UseVisualStyleBackColor = true;
+			this->btn_sobel->Click += gcnew System::EventHandler(this, &MyForm::btn_sobel_Click);
 			// 
 			// radioButton4
 			// 
@@ -951,6 +990,7 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			// 
 			// tabPage5
 			// 
+			this->tabPage5->Controls->Add(this->label10);
 			this->tabPage5->Controls->Add(this->btn_hisesit);
 			this->tabPage5->Controls->Add(this->chart_his);
 			this->tabPage5->Controls->Add(this->pB_histogram);
@@ -1173,6 +1213,49 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			this->btn_i_resimekle->UseVisualStyleBackColor = true;
 			this->btn_i_resimekle->Click += gcnew System::EventHandler(this, &MyForm::btn_i_resimekle_Click);
 			// 
+			// tabPage7
+			// 
+			this->tabPage7->Controls->Add(this->label9);
+			this->tabPage7->Controls->Add(this->button2);
+			this->tabPage7->Location = System::Drawing::Point(4, 22);
+			this->tabPage7->Name = L"tabPage7";
+			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage7->Size = System::Drawing::Size(811, 415);
+			this->tabPage7->TabIndex = 7;
+			this->tabPage7->Text = L"browse";
+			this->tabPage7->UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(160, 44);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(35, 13);
+			this->label9->TabIndex = 1;
+			this->label9->Text = L"label9";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(48, 35);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->TabIndex = 0;
+			this->button2->Text = L"button2";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(16, 340);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(0, 13);
+			this->label10->TabIndex = 5;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1202,6 +1285,7 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_1))->EndInit();
 			this->tabPage5->ResumeLayout(false);
+			this->tabPage5->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart_his))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_histogram))->EndInit();
 			this->tabPage6->ResumeLayout(false);
@@ -1209,6 +1293,8 @@ private: System::Windows::Forms::Button^  btn_hisesit;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_i_1))->EndInit();
+			this->tabPage7->ResumeLayout(false);
+			this->tabPage7->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -1316,7 +1402,7 @@ private: System::Void kaydir_Click(System::Object^  sender, System::EventArgs^  
 
 }
 private: System::Void btn_lf_Ekle_Click(System::Object^  sender, System::EventArgs^  e) {
-			 IplImage* img = cvLoadImage("D:/images/s.jpg", 1);
+			 IplImage* img = cvLoadImage("D:/images/s_gray.jpg", 1);
 			 this->pBox_orjinal->Image =
 				 gcnew System::Drawing::Bitmap(img->width, img->height, img->widthStep, System::Drawing::Imaging::PixelFormat::Format24bppRgb, (System::IntPtr) img->imageData);
 }
@@ -1327,24 +1413,25 @@ private: System::Void btn_lf_Ekle_Click(System::Object^  sender, System::EventAr
 private: System::Void btn_fitrele_Click(System::Object^  sender, System::EventArgs^  e) {
 			 Mat img = imread("D:/images/s.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 			 Mat img_new = img.clone();
-			 int eksi4[3][3] = { { 0, 1, 0 }, { 1, -4, 1 }, { 0, 1, 0 } };
-			 int arti4[3][3] = { { 0, -1, 0 }, { -1, 4, -1 }, { 0, -1, 0 } };
-			 int eksi8[3][3] = { { 1, 1, 1 }, { 1, -8, 1 }, { 1, 1, 1 } };
-			 int arti8[3][3] = { { -1, -1, -1 }, { -1, 8, -1 }, { -1, -1, -1 } };
+			 /*for (int i = 1; i < img.rows - 1; i++)
+				for (int j = 1; j < img.cols - 1; j++)
+				 img_new.at<uchar>(i, j) = 0;*/
+			 int eksi4[3][3] = { { 0, 1, 0 }   , { 1, -4, 1 }   , { 0, 1, 0 } };
+			 int arti4[3][3] = { { 0, -1, 0 }  , { -1, 4, -1 }  , { 0, -1, 0 } };
+			 int eksi8[3][3] = { { 1, 1, 1 }   , { 1, -8, 1 }   , { 1, 1, 1 } };
+			 int arti8[3][3] = { { -1, -1, -1 }, { -1, 8, -1 }  , { -1, -1, -1 } };
 			 for (int i = 1; i < img.rows - 1; i++){
 				 for (int j = 1; j < img.cols - 1; j++){
 					 for (int a = -1; a < 2; a++){
 						 for (int b = -1; b < 2; b++){
 
-							 if (rB_eksi4->Checked){
-								 img_new.at<uchar>(i, j) += eksi4[a][b] * img.at<uchar>(i, j);
-								 
-							 }
-							 else if (rB_arti4->Checked){ img_new.at<uchar>(i, j) += arti4[a][b] * img.at<uchar>(i, j); }
-							 else if (rB_eksi8->Checked){ img_new.at<uchar>(i, j) += eksi8[a][b] * img.at<uchar>(i, j); }
-							 else if (rB_arti8->Checked){ img_new.at<uchar>(i, j) += arti8[a][b] * img.at<uchar>(i, j); }
+							 if      (rB_eksi4->Checked){ img_new.at<uchar>(i, j) += eksi4[a+1][b+1] * img.at<uchar>(i - a, j - b); }
+							 else if (rB_arti4->Checked){ img_new.at<uchar>(i, j) += arti4[a+1][b+1] * img.at<uchar>(i - a, j - b); }
+							 else if (rB_eksi8->Checked){ img_new.at<uchar>(i, j) += eksi8[a+1][b+1] * img.at<uchar>(i - a, j - b); }
+							 else if (rB_arti8->Checked){ img_new.at<uchar>(i, j) += arti8[a+1][b+1] * img.at<uchar>(i - a, j - b); }
 						 }
 					 }
+
 				 }
 			 }
 			 imwrite("D:/images/s_gray_lablace.jpg", img_new);
@@ -1436,7 +1523,7 @@ private: System::Void btn_i_yap_Click(System::Object^  sender, System::EventArgs
 			 int dizi[256][256] = {};
 			 for (int i = 1; i < img.rows - 1; i++){
 				 for (int j = 1; j < img.cols - 1; j++){
-					 img_new.at<uchar>(i, j) = img.at<uchar>(i, j) & 239;
+					 img_new.at<uchar>(i, j) = img.at<uchar>(i, j) & 64;
 				 }
 			 }
 			 imwrite("D:/images/kizilotesi_eksikbit.jpg", img_new);
@@ -1485,7 +1572,7 @@ private: System::Void btn_m_fitrele_Click(System::Object^  sender, System::Event
 						 sum = 0.0;
 						 for (int k = -1; i < 2; k++){
 							 for (int l = -1; j < 2; l++){
-								 sum = sum + kernel[k + 1][l + 1] * img.at<uchar>(i - l, j - k);
+								 sum = sum + kernel[k][l] * img.at<uchar>(i - k, j - l);
 							 }
 						 }
 						 img_new.at<uchar>(i, j) = sum;
@@ -1558,7 +1645,7 @@ private: System::Void btn_m_fitrele_Click(System::Object^  sender, System::Event
 		 }
 private: System::Void btn_hisesit_Click(System::Object^  sender, System::EventArgs^  e) {
 
-			 Mat img = imread("D:/images/h/2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 Mat img = imread("D:/images/kizilotesi_eksikbit.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 
 			 Mat his_esit = histogramesitleme(img);
 
@@ -1579,9 +1666,75 @@ private: System::Void btn_hisesit_Click(System::Object^  sender, System::EventAr
 			 }
 			 imwrite("D:/images/h/h_esithis.jpg", his_esit);
 			 imwrite("D:/images/h/h.jpg", img);
+			 label10->Text = a;
 
 
+}
+private: System::Void btn_sobel_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Mat src = imread("D:/images/lena.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+			 Mat  dst;
+			 int sumx, sumy, sum,sum2, toplam = 0, suma, sumb,k,l;
 
+			 int GX[3][3] = { { -1, -2, -1 }, { 0, 0, 0 }, { 1, 2, 1 } };
+			 int GY[3][3] = { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+			 dst = src.clone();
+			 for (int i = 0; i < src.rows; i++){
+				 for (int j = 0; j < src.cols; j++){
+					 dst.at<uchar>(i, j) = 0.0;
+				 }
+			 }
+			 for (int i = 0; i < src.rows -1; i++){
+				 for (int j = 0; j < src.cols-1 ; j++){
+					 sumx=0, sumy=0, sum=0 /*,sum2=0, suma=0, sumb = 0.0*/;
+					 for (int a = -1; a <= 1; a++){
+						 for (int b = -1; b <= 1; b++){
+							 if (i + a < 0) a++;
+							 if (j + b < 0) b++;
+						   /*else if (i + a > src.rows)a++ ; 
+							 else if (j + b > src.cols)b++ ;*/ 
+							 else{
+							 sumx += GX[a+1][b+1] * src.at<uchar>(i+a,j+b);
+							 sumy += GY[a + 1][b + 1] * src.at<uchar>(i + a, j + b);
+							}
+						 
+						 }
+					 }
+					 
+					 sum = abs(sumx) + abs(sumy) ;
+					 dst.at<uchar>(i, j) = sum;
+				 }
+			 }
+			 /*suma = src.at<uchar>(i - 1, j - 1) +
+				 2 * src.at<uchar>(i, j - 1) +
+				 src.at<uchar>(i + 1, j - 1) -
+				 src.at<uchar>(i - 1, j + 1) -
+				 2 * src.at<uchar>(i, j + 1) -
+				 src.at<uchar>(i + 1, j + 1);
+
+			 sumb = src.at<uchar>(i - 1, j - 1) +
+				 2 * src.at<uchar>(i - 1, j) +
+				 src.at<uchar>(i - 1, j + 1) -
+				 src.at<uchar>(i + 1, j - 1) -
+				 2 * src.at<uchar>(i + 1, j) -
+				 src.at<uchar>(i + 1, j + 1);*/
+			 imwrite("D:/images/sobel.jpg", dst);
+			 pictureBox2->Load("D:/images/sobel.jpg");
+}
+		  
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 
+			 
+			 openFileDialog1->Filter = "Image Files (*.jpg)|*.jpg| All files (*.*)|*.*";
+			 openFileDialog1->Title = "Resmi Seçiniz.";
+
+			 // Show the Dialog.
+			 // If the user clicked OK in the dialog and
+			 // a .CUR file was selected, open it.
+			 if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			 {
+				 a = openFileDialog1->FileName;
+			 }
+			 label9->Text = a;
 }
 };
 }
